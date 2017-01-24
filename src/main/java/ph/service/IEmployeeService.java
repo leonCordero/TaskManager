@@ -1,6 +1,6 @@
-package onea.service;
+package ph.service;
 
-import onea.pojos.Employee;
+import ph.pojos.Employee;
 
 import java.io.Serializable;
 

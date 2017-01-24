@@ -1,4 +1,4 @@
-package onea.pojos;
+package ph.pojos;
 
 import javax.persistence.*;
 import java.io.Serializable;

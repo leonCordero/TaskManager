@@ -1,11 +1,9 @@
-package onea.service;
+package ph.service;
 
-import onea.doa.IEmployeeDao;
-import onea.pojos.Employee;
+import ph.doa.IEmployeeDao;
+import ph.pojos.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Created by leon1a on 19/01/17.

@@ -1,6 +1,6 @@
-package onea.doa;
+package ph.doa;
 
-import onea.pojos.Employee;
+import ph.pojos.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;

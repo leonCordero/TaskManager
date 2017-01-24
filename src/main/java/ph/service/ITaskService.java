@@ -1,6 +1,6 @@
-package onea.service;
+package ph.service;
 
-import onea.pojos.Task;
+import ph.pojos.Task;
 
 import java.io.Serializable;
 

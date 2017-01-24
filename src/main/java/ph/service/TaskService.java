@@ -1,7 +1,7 @@
-package onea.service;
+package ph.service;
 
-import onea.doa.ITaskDao;
-import onea.pojos.Task;
+import ph.doa.ITaskDao;
+import ph.pojos.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
