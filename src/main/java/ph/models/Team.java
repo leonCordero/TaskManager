@@ -2,6 +2,7 @@ package ph.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,8 +20,8 @@ public class Team implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "teams")
-    private List<Employee> employees;
+    @ManyToMany(mappedBy = "teams")
+    private List<Employee> employees = new ArrayList<Employee>();
 
     public Team(String name) {
         this.name = name;

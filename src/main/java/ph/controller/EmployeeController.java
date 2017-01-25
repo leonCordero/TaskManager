@@ -26,10 +26,10 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    TeamService teamService;
+    EmployeeService employeeService;
 
     @Autowired
-    EmployeeService employeeService;
+    TeamService teamService;
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
     public ModelAndView employees(@ModelAttribute("employeeForm")EmployeeForm employeeForm, ModelAndView modelAndView){
@@ -53,7 +53,7 @@ public class EmployeeController {
     private List<Team> getTeams(String teams) {
         List<String> teamsList = Arrays.asList(teams.split(","));
         List<Team> teamsComplete = new LinkedList<Team>();
-        teamsList.forEach(team -> teamsComplete.add(new Team(team)));
+        teamsList.forEach(team -> teamsComplete.add(teamService.findTeamByName(team)));
         return teamsComplete;
     }
 }

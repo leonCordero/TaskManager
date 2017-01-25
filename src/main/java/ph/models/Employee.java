@@ -2,6 +2,7 @@ package ph.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,12 +27,12 @@ public class Employee implements Serializable{
     @OneToMany(targetEntity = Task.class, mappedBy = "employee", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Task> tasks;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE   }, targetEntity =Team.class,
-            fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity =Team.class, cascade = {CascadeType.ALL},
+            fetch = FetchType.LAZY)
     @JoinTable(name = "employee_team", joinColumns = {
             @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")},
             inverseJoinColumns = {@JoinColumn(name = "team_id", referencedColumnName = "team_id")})
-    private List<Team> teams;
+    private List<Team> teams = new ArrayList<Team>();
 
     public Employee(String name, List<Task> tasks, List<Team> teams) {
         this.name = name;

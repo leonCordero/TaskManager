@@ -25,4 +25,8 @@ public class TeamService implements ITeamService {
     public List<Team> getAllTeams() {
         return teamDao.findAll();
     }
+
+    public Team findTeamByName(String teamName){
+        return teamDao.findTeamByName(teamName);
+    }
 }
