@@ -1,4 +1,4 @@
-package ph.pojos;
+package ph.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +14,7 @@ public class Employee implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "employee_id")
     private long id;
 
     @Column(nullable = false)
@@ -25,10 +26,11 @@ public class Employee implements Serializable{
     @OneToMany(targetEntity = Task.class, mappedBy = "employee", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Task> tasks;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE   }, targetEntity =Team.class,
+            fetch = FetchType.EAGER)
     @JoinTable(name = "employee_team", joinColumns = {
-            @JoinColumn(name = "employee_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)})
+            @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")},
+            inverseJoinColumns = {@JoinColumn(name = "team_id", referencedColumnName = "team_id")})
     private List<Team> teams;
 
     public Employee(String name, List<Task> tasks, List<Team> teams) {
@@ -74,5 +76,13 @@ public class Employee implements Serializable{
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getPosition() {
+        return position;
     }
 }

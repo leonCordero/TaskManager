@@ -1,7 +1,7 @@
 package ph.doa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ph.pojos.Team;
+import ph.models.Team;
 
 import javax.transaction.Transactional;
 

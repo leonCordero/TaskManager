@@ -1,6 +1,6 @@
 package ph.service;
 
-import ph.pojos.Task;
+import ph.models.Task;
 
 import java.io.Serializable;
 

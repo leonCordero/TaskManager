@@ -1,6 +1,6 @@
 package ph.service;
 
-import ph.pojos.Employee;
+import ph.models.Employee;
 
 import java.io.Serializable;
 

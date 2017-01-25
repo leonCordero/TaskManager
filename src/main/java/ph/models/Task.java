@@ -1,4 +1,4 @@
-package ph.pojos;
+package ph.models;
 
 import javax.persistence.*;
 import java.io.Serializable;

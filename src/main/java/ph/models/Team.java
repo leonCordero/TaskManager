@@ -1,4 +1,4 @@
-package ph.pojos;
+package ph.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,13 +13,18 @@ public class Team implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "team_id")
     private long id;
 
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teams")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "teams")
     private List<Employee> employees;
+
+    public Team(String name) {
+        this.name = name;
+    }
 
     public Team(String name, List<Employee> employees) {
         this.name = name;

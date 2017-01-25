@@ -6,124 +6,31 @@
                     <div class="panel-heading">Employee From</div>
                     <div class="panel-body">
                         <div class="col-md-6">
-                            <form role="form">
-
+                            <form th:action="@{/save-employee}" method="post" th:object="${employeeForm}" role="form"
+                                  class="save-employee-form">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" placeholder="Name">
+                                    <input th:field="*{name}" class="form-control" placeholder="Name">
                                 </div>
-
                                 <div class="form-group">
                                     <label>Position</label>
-                                    <input class="form-control" placeholder="Position">
+                                    <input th:field="*{position}" class="form-control" placeholder="Position">
                                 </div>
-
-
+                                <input th:field="*{teams}" type="hidden" class="teams-selected">
                                 <div class="form-group">
-                                    <label>File input</label>
-                                    <input type="file">
-                                    <p class="help-block">Example block-level help text here.</p>
+                                    <label>Work Teams</label>
+                                    <div class="checkbox" th:each="team : ${teams}" th:object="${team}">
+                                        <label>
+                                            <input class="team-input" type="checkbox" th:value="*{name}" th:text="*{name}">
+                                        </label>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Text area</label>
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-
-                                <label>Validation</label>
-                                <div class="form-group has-success">
-                                    <input class="form-control" placeholder="Success">
-                                </div>
-                                <div class="form-group has-warning">
-                                    <input class="form-control" placeholder="Warning">
-                                </div>
-                                <div class="form-group has-error">
-                                    <input class="form-control" placeholder="Error">
-                                </div>
-
+                                <button type="submit" class="btn btn-primary" id="save-employee-submit">Save Employee</button>
+                            </form>
                         </div>
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <label>Checkboxes</label>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 1
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 2
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 3
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 4
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Radio Buttons</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
-                                               checked>Radio Button 1
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio
-                                        Button 2
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio
-                                        Button 3
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio
-                                        Button 4
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Selects</label>
-                                <select class="form-control">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Multiple Selects</label>
-                                <select multiple class="form-control">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Submit Button</button>
-                            <button type="reset" class="btn btn-default">Reset Button</button>
-                        </div>
-                        </form>
                     </div>
                 </div>
-            </div><!-- /.col-->
-        </div><!-- /.row -->
-
-    </div><!--/.main-->
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,6 +1,6 @@
 package ph.doa;
 
-import ph.pojos.Task;
+import ph.models.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;

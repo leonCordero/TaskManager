@@ -1,7 +1,7 @@
 package ph.service;
 
 import ph.doa.IEmployeeDao;
-import ph.pojos.Employee;
+import ph.models.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

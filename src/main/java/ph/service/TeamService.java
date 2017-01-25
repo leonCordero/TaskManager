@@ -3,7 +3,9 @@ package ph.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ph.doa.ITeamDao;
-import ph.pojos.Team;
+import ph.models.Team;
+
+import java.util.List;
 
 /**
  * Created by leon on 24/01/2017.
@@ -17,5 +19,10 @@ public class TeamService implements ITeamService {
     @Override
     public void save(Team team) {
         teamDao.save(team);
+    }
+
+    @Override
+    public List<Team> getAllTeams() {
+        return teamDao.findAll();
     }
 }

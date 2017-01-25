@@ -1,6 +1,6 @@
 package ph.doa;
 
-import ph.pojos.Employee;
+import ph.models.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
