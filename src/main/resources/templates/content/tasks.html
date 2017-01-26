@@ -1,0 +1,54 @@
+<div layout:decorator="layout/mainLayout" layout:fragment="content">
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Task From</div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <form th:action="@{/save-task}" method="post" th:object="${taskForm}" role="form"
+                                  class="save-employee-form">
+                                <div class="form-group">
+                                    <label>Task Name</label>
+                                    <input th:field="*{name}" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Task Description</label>
+                                    <input th:field="*{description}" class="form-control" placeholder="Description">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ticket URL</label>
+                                    <input th:field="*{ticketUrl}" class="form-control" placeholder="Ticket Url">
+                                </div>
+                                <input th:field="*{priority}" type="hidden" class="priority-selected">
+                                <div class="form-group">
+                                    <label>Priority</label>
+                                    <select class="form-control priority-group">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <input th:field="*{employee}" type="hidden" class="employee-selected">
+                                <div class="form-group">
+                                    <label>Employee</label>
+                                    <div th:each="employee : ${employees}" th:object="${employee}" class="radio">
+                                        <label>
+                                            <input class="employee-radio" type="radio" name="optionsRadios"
+                                                   th:value="*{id}" th:text="*{name}">
+                                        </label>
+                                        <br>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="save-task-submit">Save Task
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

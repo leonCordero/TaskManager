@@ -39,6 +39,22 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $("#save-task-submit").on("click", function () {
+        var form = $(document).find(".save-task-form");
+        var priority = $(document).find(".priority-group").val();
+        var employee = "";
+
+        $('.employee-radio').each(function () {
+            if (this.checked) {
+                employee = employee.concat(this.value);
+            }
+        });
+        $(document).find(".priority-selected").val(priority);
+        $(document).find(".employee-selected").val(employee);
+        form.submit();
+    });
+});
 
 function removeActiveTabs() {
     var activeTab = $(document).find(".active");

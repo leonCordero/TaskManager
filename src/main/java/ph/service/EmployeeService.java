@@ -6,6 +6,7 @@ import ph.doa.IEmployeeDao;
 import ph.models.Employee;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by leon1a on 19/01/17.
@@ -20,6 +21,16 @@ public class EmployeeService implements IEmployeeService{
     @Transactional
     public void save(Employee employee) {
         employeeDao.save(employee);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeDao.findAll();
+    }
+
+    @Override
+    public Employee findEmployeeById(long id) {
+        return employeeDao.findOne(id);
     }
 
 }

@@ -23,6 +23,9 @@ public class Task implements Serializable {
     @Column(nullable = false)
     private String priority;
 
+    @Column()
+    private String ticketUrl;
+
     @ManyToOne(targetEntity = Employee.class, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
@@ -34,11 +37,12 @@ public class Task implements Serializable {
         this.id = id;
     }
 
-    public Task(String name, String description, String priority, Employee employee) {
+    public Task(String name, String description, String priority, Employee employee, String ticketUrl) {
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.employee = employee;
+        this.ticketUrl = ticketUrl;
     }
 
     public Long getId() {
@@ -79,5 +83,21 @@ public class Task implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTicketUrl() {
+        return ticketUrl;
+    }
+
+    public void setTicketUrl(String ticketUrl) {
+        this.ticketUrl = ticketUrl;
     }
 }
