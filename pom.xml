@@ -5,8 +5,8 @@
 
 	<groupId>onea</groupId>
 	<artifactId>sitetaskmanager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>ROOT</version>
+	<packaging>war</packaging>
 
 	<name>sitetaskmanager</name>
 	<description>Task Manager for 1a-am tickets </description>
